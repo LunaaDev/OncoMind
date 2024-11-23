@@ -18,6 +18,10 @@ export class AppComponent {
       url: '/creditos', 
       icon: 'heart' 
     },
+    { title: 'Abordagem familiar', 
+      url: '/abordagem-familiar', 
+      icon: 'heart' 
+    },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {}
