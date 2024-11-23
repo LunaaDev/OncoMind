@@ -3,3 +3,62 @@ ion-img {
     width: 70px;
     object-fit: cover;
 }
+
+/* Estilos para o conteúdo do cartão de créditos */
+ion-card {
+    max-width: 600px;
+    margin: 0 auto; /* Centraliza o cartão na página */
+    padding: 20px;
+    background-color: transparent; /* Fundo transparente */
+    border-radius: 10px;
+    box-shadow: none; /* Remove a sombra do cartão */
+  }
+  
+  ion-card-header {
+    text-align: center; /* Centraliza o título dentro do cartão */
+    background-color: transparent; /* Fundo transparente para o header */
+    padding: 15px;
+  }
+  
+  .title {
+    text-transform: uppercase; /* Títulos em caixa alta */
+    font-weight: bold; /* Títulos em negrito */
+    font-size: 1.2rem;
+    color: #236CF9; /* Cor do título */
+  }
+  
+  ion-card-content {
+    text-align: center; /* Centraliza o conteúdo dentro do cartão */
+    font-size: 1rem;
+    padding: 20px;
+  }
+  
+  ion-card-content p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase; /* Títulos em caixa alta */
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  
+  ul li strong {
+    font-weight: normal; /* Nomes em formato normal */
+    font-size: 1rem;
+  }
+  
+  /* Estilos para os textos */
+  ion-card-content ul li {
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
