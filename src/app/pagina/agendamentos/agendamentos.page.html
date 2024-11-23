@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-menu-button slot="start"></ion-menu-button>
+    <ion-img src="/assets/onco.png" alt="Onco Mind logo" slot="end"></ion-img>
+    <ion-title>Agendamentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="display: flex; flex-direction: column; height: 100%;">
+
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Escolha a clínica</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label position="stacked">Selecione uma clínica:</ion-label>
+      <ion-select [(ngModel)]="selectedClinic" interface="popover">
+        <ion-select-option *ngFor="let clinic of clinicDoctors" [value]="clinic">{{ clinic.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-list-header>
+      <ion-label>Escolha seu Profissional</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label position="stacked">Selecione um profissional:</ion-label>
+      <ion-select [(ngModel)]="selectedDoctor" interface="popover">
+        <ion-select-option *ngFor="let doctor of availableDoctors" [value]="doctor">{{ doctor.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-list-header>
+      <ion-label>Escolha o tipo de Atendimento</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label position="stacked">Selecione o atendimento:</ion-label>
+      <ion-select [(ngModel)]="selectedService" interface="popover">
+        <ion-select-option value="Online">Online</ion-select-option>
+        <ion-select-option value="Presencial">Presencial</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-list-header>
+      <ion-label>Escolha o horário</ion-label>
+    </ion-list-header>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" *ngFor="let time of availableTimes">
+          <ion-button [color]="time === selectedTime ? 'primary' : 'light'" expand="block" (click)="selectTime(time)">
+            {{ time }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-button expand="block" color="success" (click)="confirmAppointment()">Confirmar Agendamento</ion-button>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center" style="font-size: 0.9rem; color: black;">
+      © 2024 Onco Mind - Todos os direitos reservados
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

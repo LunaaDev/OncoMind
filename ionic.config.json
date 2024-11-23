@@ -1,0 +1,7 @@
+{
+  "name": "OncoMind",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
