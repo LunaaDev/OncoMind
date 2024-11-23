@@ -14,7 +14,7 @@ export class AppComponent {
       url: '/agendamentos', 
       icon: 'calendar' 
     },
-    { title: 'Abordagem familiar', 
+    { title: 'Abordagem Familiar', 
       url: '/abordagem-familiar', 
       icon: 'accessibility' 
     },
