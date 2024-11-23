@@ -14,14 +14,15 @@ export class AppComponent {
       url: '/agendamentos', 
       icon: 'calendar' 
     },
+    { title: 'Abordagem familiar', 
+      url: '/abordagem-familiar', 
+      icon: 'accessibility' 
+    },
     { title: 'Créditos', 
       url: '/creditos', 
       icon: 'heart' 
     },
-    { title: 'Abordagem familiar', 
-      url: '/abordagem-familiar', 
-      icon: 'heart' 
-    },
+   
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {}

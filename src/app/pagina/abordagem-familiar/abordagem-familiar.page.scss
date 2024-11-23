@@ -3,3 +3,43 @@ ion-img {
     width: 70px;
     object-fit: cover;
 }
+
+/* Estilo para os títulos */
+.title {
+    text-transform: uppercase; /* Caixa alta */
+    font-weight: bold; /* Negrito */
+    color: #236CF9; /* Cor azul */
+    text-align: center; /* Centraliza os títulos */
+    font-size: 1.2rem; /* Ajuste de tamanho de fonte */
+  }
+  
+  /* Estilo para o texto do conteúdo */
+  .content-text {
+    font-size: 1rem; /* Tamanho do texto */
+    text-align: center; /* Centraliza o texto */
+    margin: 10px 0; /* Espaçamento entre os parágrafos */
+    color: #ffffff; /* Cor azul */
+  }
+  
+  /* Estilo para o cartão */
+  ion-card {
+    margin: 20px auto; /* Centraliza o cartão */
+    padding: 20px;
+    background-color: transparent; /* Fundo transparente */
+    border-radius: 10px;
+    max-width: 600px; /* Limita a largura do cartão */
+    box-shadow: none; /* Remove a sombra */
+  }
+  
+  /* Estilo do cabeçalho do cartão */
+  ion-card-header {
+    background-color: transparent; /* Fundo transparente no cabeçalho */
+    text-align: center; /* Centraliza o conteúdo do cabeçalho */
+  }
+  
+  /* Estilo do conteúdo do cartão */
+  ion-card-content {
+    font-size: 1rem; /* Tamanho da fonte */
+    padding: 10px;
+    text-align: center; /* Centraliza o texto dentro do cartão */
+  }
