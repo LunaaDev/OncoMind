@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getScheduling } from 'src/app/service/agendamento.service';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
   constructor() { }
-
-  ngOnInit() {
+  schedules: any[] = [];
+  async ngOnInit() {
+    const schedules = await getScheduling();
+    this.schedules = schedules;
   }
 
 }
