@@ -56,7 +56,7 @@ export class AgendamentosPage implements OnInit {
       console.log(correctDate)
       const body: any = {
         user: {
-          id: 2,
+          id: 1,
         },
         treatment: 'Consulta Geral',
         date: correctDate,
