@@ -26,19 +26,17 @@ export class AgendamentosPage implements OnInit {
     private route: ActivatedRoute) { }
 
   async ngOnInit() {
+    this.clinicDoctors = await getClinics();
+    this.availableDoctors = await getDoctors();
     this.scheduleId = +this.route.snapshot.paramMap.get('id')!;
     if (this.scheduleId) {
       const schedule = await getSchedulingById(this.scheduleId);
-      this.selectedClinic = schedule.clinic;
-      this.clinicDoctors = [schedule.clinic]
-      this.selectedDoctor = schedule.doctor;
-      this.availableDoctors = [schedule.doctor];
+      this.selectedClinic = this.clinicDoctors.find(item => item.id == schedule.clinic.id);
+      this.selectedDoctor = this.availableDoctors.find(item => item.id == schedule.doctor.id);
       this.selectedTime = schedule.date;
       this.selectedService = schedule.online ? "Online" : "Presencial"
       return;
     }
-    this.clinicDoctors = await getClinics();
-    this.availableDoctors = await getDoctors();
   }
 
   async abrirPagina() {
@@ -46,20 +44,17 @@ export class AgendamentosPage implements OnInit {
   }
 
   selectTime(event: any) {
-    this.selectedTime = event.detail.value;
+    this.selectedTime = event.detail.value
   }
 
   async confirmAppointment() {
     if (this.isFormComplete()) {
-      const separetedDate = this.selectedTime.split("+")
-      const correctDate = separetedDate[0] + "-03:00"
-      console.log(correctDate)
       const body: any = {
         user: {
           id: 1,
         },
         treatment: 'Consulta Geral',
-        date: correctDate,
+        date: this.selectedTime,
         doctor: {
           id: this.selectedDoctor.id,
         },
@@ -72,10 +67,18 @@ export class AgendamentosPage implements OnInit {
       let response = { error: 'Tivemos um problema ao efetuar o agendamento' }
       if (this.scheduleId) {
         body.id = this.scheduleId
-        response = await updateSchedule(body)
-      } else {
+        response = await updateSchedule(body);
         response = await newSchedule(body);
+        if (response.error) {
+          await this.showToast(`Não foi possível efetuar as alterações, tente novamente mais tarde`, 'danger');
+          return
+        }
+        await this.showToast(`Alterações efetuadas com sucesso!`);
+        this.cleanForm();
+        this.nav.back();
+        return;
       }
+      response = await newSchedule(body);
       if (response.error) {
         await this.showToast(`Não foi possível efetuar o agendamento, tente novamente mais tarde`, 'danger');
         return
