@@ -28,7 +28,8 @@
     <ion-item>
       <ion-label position="stacked">Selecione um profissional:</ion-label>
       <ion-select [(ngModel)]="selectedDoctor" interface="popover">
-        <ion-select-option *ngFor="let doctor of availableDoctors" [value]="doctor">{{ doctor.name }}</ion-select-option>
+        <ion-select-option *ngFor="let doctor of availableDoctors" [value]="doctor">{{ doctor.name
+          }}</ion-select-option>
       </ion-select>
     </ion-item>
 
@@ -48,15 +49,13 @@
       <ion-label>Escolha o horário</ion-label>
     </ion-list-header>
 
-    <ion-grid>
-      <ion-row>
-        <ion-col size="4" *ngFor="let time of availableTimes">
-          <ion-button [color]="time === selectedTime ? 'primary' : 'light'" expand="block" (click)="selectTime(time)">
-            {{ time }}
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime (ionChange)="selectTime($event)" id="datetime"></ion-datetime>
+      </ng-template>
+    </ion-modal>
 
     <ion-button expand="block" color="success" (click)="confirmAppointment()">Confirmar Agendamento</ion-button>
   </ion-list>

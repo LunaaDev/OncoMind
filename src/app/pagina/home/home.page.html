@@ -10,19 +10,15 @@
 
   <ion-list>
     <ion-list-header>
-      <ion-label>Agendemos</ion-label>
+      <ion-label>Agendamentos</ion-label>
     </ion-list-header>
 
-    <ion-item>
-      <ion-label position="stacked">Selecione uma clínica:</ion-label>
+    <ion-item *ngFor="let schedule of schedules">
       <ion-card>
-        <ion-card-header>
-          <ion-card-title>Card Title</ion-card-title>
-          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        </ion-card-header>
-      
         <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
+          <ion-card-label>Clinica: {{ schedule.clinic.name }}</ion-card-label>
+          <ion-card-label>Médico: {{ schedule.doctor.name }}</ion-card-label>
+          <ion-card-label>Data: {{ schedule.date | date: 'dd/MM/yyyy HH:mm' }}</ion-card-label>
         </ion-card-content>
       </ion-card>
     </ion-item>
