@@ -53,11 +53,11 @@
 
     <ion-modal [keepContentsMounted]="true">
       <ng-template>
-        <ion-datetime (ionChange)="selectTime($event)" id="datetime"></ion-datetime>
+        <ion-datetime [value]="selectedTime" (ionChange)="selectTime($event)" id="datetime"></ion-datetime>
       </ng-template>
     </ion-modal>
 
-    <ion-button expand="block" color="success" (click)="confirmAppointment()">Confirmar Agendamento</ion-button>
+    <ion-button expand="block" color="success" (click)="confirmAppointment()">Confirmar {{ scheduleId ? 'Alterações' : 'Agendamento' }}</ion-button>
   </ion-list>
 
 </ion-content>

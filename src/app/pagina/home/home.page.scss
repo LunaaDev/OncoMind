@@ -3,3 +3,18 @@ ion-img {
     width: 70px;
     object-fit: cover;
 }
+
+.schedule-card {
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.schedule-card_actions {
+    display: flex;
+    flex-direction: column;
+    padding-inline-end: 1rem;
+    justify-content: space-evenly;
+}

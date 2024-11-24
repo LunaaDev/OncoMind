@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./pagina/agendamentos/agendamentos.module').then( m => m.AgendamentosPageModule)
   },
   {
+    path: 'agendamentos/:id',
+    loadChildren: () => import('./pagina/agendamentos/agendamentos.module').then( m => m.AgendamentosPageModule)
+  },
+  {
     path: 'abordagem-familiar',
     loadChildren: () => import('./pagina/abordagem-familiar/abordagem-familiar.module').then( m => m.AbordagemFamiliarPageModule)
   },
